@@ -1,0 +1,80 @@
+/* Definição da Entidade Visual do SharkWave */
+
+.shark-card {
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Identidade Visual: Estado MODERADO (Tecnologia Ativa) */
+.state-moderado {
+    background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+}
+
+.state-moderado .scan-line {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(14, 165, 233, 0) 0%, rgba(14, 165, 233, 0.1) 50%, rgba(14, 165, 233, 0) 100%);
+    animation: scan 3s linear infinite;
+    opacity: 0.5;
+}
+
+/* Identidade Visual: Estado CRÍTICO (Alerta de Perigo) */
+.state-critico {
+    background: radial-gradient(circle at top right, #991b1b 0%, #7f1d1d 100%);
+    box-shadow: 0 0 30px rgba(220, 53, 69, 0.3);
+}
+
+.state-critico .scan-line {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(45deg, rgba(220, 53, 69, 0.1), rgba(220, 53, 69, 0.1) 10px, transparent 10px, transparent 20px);
+    animation: pulse-alerta 1s ease infinite;
+}
+
+.shark-card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.state-moderado .shark-card-label { color: #38bdf8; }
+.state-critico .shark-card-label { color: #fecaca; }
+
+.shark-card-value {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.shark-card-desc {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+@keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes pulse-alerta {
+    0% { box-shadow: 0 0 10px rgba(220, 53, 69, 0.3) inset; }
+    50% { box-shadow: 0 0 30px rgba(220, 53, 69, 0.6) inset; }
+    100% { box-shadow: 0 0 10px rgba(220, 53, 69, 0.3) inset; }
+}
